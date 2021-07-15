@@ -7,4 +7,7 @@
         /*"--ignore=E501"*/
     ],
     "python.pythonPath": "D:\\Programmes\\anaconda3\\envs\\OC_P5\\python.exe",
+    "python.analysis.extraPaths": [
+        "./P5_03_API"
+    ],
 }

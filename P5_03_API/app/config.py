@@ -10,8 +10,12 @@ class Config(object):
 
     # API
     API_KEY = os.getenv('API_KEY')
-    RESTX_MASK_SWAGGER = True
+    RESTX_MASK_SWAGGER = False
     ERROR_404_HELP = False  # disable complementary error message when 404
+
+    # File upload
+    ALLOWED_EXT = {'h5', 'hdf5', 'pkl'}
+    UPLOAD_DIR = os.path.join(os.getcwd(), 'tmp')
 
     # Tag suggestion
     VECT_PATH = './static/model.h5'

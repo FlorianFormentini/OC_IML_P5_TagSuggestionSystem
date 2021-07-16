@@ -45,7 +45,7 @@ def file_upload(file, save=True):
     """Verify and save or return an uploaded file
     args:
         file: file - the received file
-        save: bool, default=True - If true save the file in the filesystem, else return the file
+        save: bool, default=True - If true save the file in the filesystem and returns its path, else return the file
     """
     if not file:
         # if user does not select file, browser also submit an empty part without filename
@@ -56,7 +56,7 @@ def file_upload(file, save=True):
             filepath = os.path.join(current_app.config['UPLOAD_DIR'], filename)
             check_local_upload_dir()
             file.save(filepath)
-            return filename
+            return filepath
         else:
             return file
     else:

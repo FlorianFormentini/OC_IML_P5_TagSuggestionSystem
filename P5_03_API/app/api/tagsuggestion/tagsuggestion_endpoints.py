@@ -14,10 +14,22 @@ class TagSuggestion(Resource):
 
     @apikey_required
     @ns.doc(security='apikey')
-    @ns.expect([TagSuggestionDTO.post_in, TagSuggestionDTO.post_args])
+    @ns.expect(TagSuggestionDTO.post_args, TagSuggestionDTO.post_in)
     @ns.marshal_with(TagSuggestionDTO.tags_out)
     @ns.response(404, "Model or its vectorizer not found.")
     @ns.response(200, "Success.")
     def post(self):
-        """Return the tags distribution for a given post (title + body)"""
+        """Return the tags distribution for a given post"""
+        return _tagsuggestion_services.question_tags('')
+
+
+@ns.route('/model')
+class ModelParams(Resource):
+
+    @apikey_required
+    @ns.doc(security='apikey')
+    @ns.response(500, "Wrong API key")
+    @ns.response(200, "Success.")
+    def get(self):
+        """Return the used configuration"""
         return _tagsuggestion_services.question_tags('')

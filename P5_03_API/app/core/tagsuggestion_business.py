@@ -108,7 +108,6 @@ class TagSuggestion:
         """
         post_txt = self.__prepare_post(title, body)
         post_matrix = self.input_vect.transform([post_txt])
-        print(len(self.input_vect.get_feature_names()), post_matrix.shape)
-        tags = self.model.predict(post_matrix)
-        print("tags: ", tags)
-        return self.output_vect.inverse_transform(tags), post_txt
+        tags_vect = self.model.predict(post_matrix)
+        tags = self.output_vect.inverse_transform(tags_vect)[0]
+        return list(tags), post_txt

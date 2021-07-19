@@ -12,10 +12,10 @@ class TagSuggestionDTO:
     })
     # output tags model
     tags_out = ns.model('output_tags', {
-        'post': fields.List(fields.String(), description='Intents responses'),
+        'post': fields.String(description='Input post'),
         'tags': fields.List(fields.String(), description='Predicted tags', required=True)
     })
 
     # Tags Suggestion request params
     post_args = reqparse.RequestParser()
-    post_args.add_argument('return-post', type=inputs.boolean, default=False, required=False)
+    post_args.add_argument('return-post', type=inputs.boolean, default=True, required=False, help='If False it returns only the tags list.')

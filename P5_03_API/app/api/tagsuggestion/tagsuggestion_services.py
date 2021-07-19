@@ -1,9 +1,5 @@
-from flask import current_app
 from flask_restx import abort
-from werkzeug.exceptions import HTTPException
-
 from ...core.tagsuggestion_business import TagSuggestion
-from ..utils import file_upload
 
 
 class tagsuggestionServices:
@@ -21,16 +17,26 @@ class tagsuggestionServices:
         except FileNotFoundError:
             abort(404, 'The model or a vectorizer was not found.')
 
-    def upload_model(self, vect_file, model_file):
-        try:
-            # uploads files on the server and changes used path
-            current_app.config['VECT_PATH'] = file_upload(vect_file)
-            current_app.config['MODEL_PATH'] = file_upload(model_file)
-            return {'message': 'Model successfully changed.'}
-        except HTTPException as e:
-            abort(400, e)
-        except Exception as e:
-            abort(500, e)
+    def model_params(self):
+        params = {
+            'tokenizer': {
+                'type': 'TransformTokenizer (custom)',
+                'regex': r"r'(?u)\b\w\w+\b'",
+                'stop_words': 'NLTK english list',
+                'keeped_POStags': ['NN', 'NNP', 'NNPS', 'NNS']
+            },
+            'vectorizer': {
+                'type': 'TfidfVectorizer',
+                'ngram_range': '(1,1) - unigrams',
+                'min_df': 5,
+                'max_df': 0.80,
+            },
+            'model': {
+                'type': "OneVsRestClassifier(Logisticregression(solver='saga', penalty='l1', C=10))",
+                'testset_F1': 0.662
+            }
+        }
+        return params
 
 
 # singleton object to use in the controllers

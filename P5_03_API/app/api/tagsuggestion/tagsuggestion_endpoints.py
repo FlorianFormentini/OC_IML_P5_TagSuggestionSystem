@@ -25,7 +25,7 @@ class TagSuggestion(Resource):
         return _tagsuggestion_services.question_tags(data, args['return-post'])
 
 
-@ns.route('/model')
+@ns.route('/config')
 class ModelParams(Resource):
 
     @apikey_required
@@ -34,4 +34,4 @@ class ModelParams(Resource):
     @ns.response(200, "Success.")
     def get(self):
         """Return the used configuration"""
-        return _tagsuggestion_services.question_tags('')
+        return _tagsuggestion_services.model_params()

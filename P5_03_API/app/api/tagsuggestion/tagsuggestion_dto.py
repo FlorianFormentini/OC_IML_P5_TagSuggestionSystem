@@ -3,7 +3,7 @@ from flask_restx import Namespace, fields, reqparse, inputs
 
 class TagSuggestionDTO:
     # Tags Suggestion namespace declaration
-    ns = Namespace('Tags Suggestion', description="Tag Suggestion system for StackOverflow's new posts.")
+    ns = Namespace('Tags Suggestion', description="Predicts some tags for a given post.")
 
     # Input question model
     post_in = ns.model('input_post', {

@@ -11,7 +11,7 @@ api = Api(
     authorizations=authorizations,
     title='OC IML P5 : StackOverflow Tag Suggestion System',
     version='1.0',
-    description='By FORMENTINI Florian (07-2021)'
+    description="Tag Suggestion system for StackOverflow's new posts.\nBy Florian Formentini (07-2021)"
 )
 
 # subscription to all namespaces

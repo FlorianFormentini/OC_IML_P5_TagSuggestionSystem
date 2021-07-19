@@ -9,9 +9,9 @@ api_blueprint = Blueprint('api', __name__)
 api = Api(
     api_blueprint,
     authorizations=authorizations,
-    title='OC P5 : StackOverflow Tag Suggestion System',
+    title='OC IML P5 : StackOverflow Tag Suggestion System',
     version='1.0',
-    description='Endpoints to use the different features'
+    description='By FORMENTINI Florian (07-2021)'
 )
 
 # subscription to all namespaces

@@ -8,7 +8,7 @@ class TagSuggestionDTO:
     # Input question model
     post_in = ns.model('input_post', {
         'title': fields.String(description='Post title', required=True),
-        'body': fields.List(fields.String(), description='Post body', required=True),
+        'body': fields.String(description='Post body', required=True),
     })
     # output tags model
     tags_out = ns.model('output_tags', {

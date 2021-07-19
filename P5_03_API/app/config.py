@@ -18,8 +18,8 @@ class Config(object):
     UPLOAD_DIR = os.path.join(os.getcwd(), 'tmp')
 
     # Tag suggestion
-    VECT_PATH = './static/model.h5'
-    MODEL_PATH = './static/model.h5'
+    VECT_PATH = 'app/static/trainset-io-vectorizers.pkl'
+    MODEL_PATH = 'app/static/model-OneVsRestClassifier-tuned.pkl'
 
 
 class DevelopmentConfig(Config):

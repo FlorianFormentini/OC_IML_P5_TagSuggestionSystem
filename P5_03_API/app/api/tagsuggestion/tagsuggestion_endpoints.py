@@ -1,4 +1,4 @@
-# from flask import request
+from flask import request
 from flask_restx import Resource
 
 from ..utils import apikey_required
@@ -16,11 +16,13 @@ class TagSuggestion(Resource):
     @ns.doc(security='apikey')
     @ns.expect(TagSuggestionDTO.post_args, TagSuggestionDTO.post_in)
     @ns.marshal_with(TagSuggestionDTO.tags_out)
-    @ns.response(404, "Model or its vectorizer not found.")
+    @ns.response(404, "Model or a vectorizer not found.")
     @ns.response(200, "Success.")
     def post(self):
         """Return the tags distribution for a given post"""
-        return _tagsuggestion_services.question_tags('')
+        args = TagSuggestionDTO.post_args.parse_args()
+        data = request.get_json()
+        return _tagsuggestion_services.question_tags(data, args['return-post'])
 
 
 @ns.route('/model')

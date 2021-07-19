@@ -11,6 +11,7 @@ def create_app(config_name='dev') -> Flask:
     app.config.from_object(config_by_name[config_name])
 
     with app.app_context():
+        from .core.tagsuggestion_business import TransformTokenizer # noqa
         # import blueprints
         from .api import api_blueprint
         # register blueprints

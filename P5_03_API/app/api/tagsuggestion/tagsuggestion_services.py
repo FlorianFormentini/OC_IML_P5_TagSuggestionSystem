@@ -8,14 +8,18 @@ from ..utils import file_upload
 
 class tagsuggestionServices:
 
-    def question_tags(self, data):
+    def question_tags(self, data, return_post):
         try:
             # init models
+
             suggestor = TagSuggestion()
-            suggestor.suggest_tags(data['title'], data['body'])
-            return {'tags': []}
+            tags, post = suggestor.suggest_tags(data['title'], data['body'])
+            if return_post:
+                return {'post': post, 'tags': tags}
+            else:
+                return {'tags': tags}
         except FileNotFoundError:
-            abort(404, 'The model (or his vectorizer) was not found.')
+            abort(404, 'The model or a vectorizer was not found.')
 
     def upload_model(self, vect_file, model_file):
         try:

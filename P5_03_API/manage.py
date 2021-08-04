@@ -1,15 +1,13 @@
 import os
 import unittest
 from flask_script import Manager
-
-
 from app import create_app
 
+from transform_tokenizer import TransformTokenizer # noqa
 
 app = create_app(os.getenv('OC_P5_ENV', 'dev'))
-with app.app_context():
-    from app.core.tagsuggestion_business import TransformTokenizer # noqa
 app.app_context().push()
+
 
 manager = Manager(app)
 

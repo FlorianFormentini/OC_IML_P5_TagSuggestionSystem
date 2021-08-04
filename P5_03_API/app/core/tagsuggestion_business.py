@@ -76,7 +76,6 @@ class TagSuggestion:
         Raise:
             FileNotFoundError - If a file is not found
         """
-        print(vect_path, "\n", model_path)
         self.input_vect, self.output_vect = joblib.load(vect_path)
         self.model = joblib.load(model_path)
         print('> Model loaded')

@@ -7,7 +7,6 @@ class tagsuggestionServices:
     def question_tags(self, data, return_post):
         try:
             # init models
-
             suggestor = TagSuggestion()
             tags, post = suggestor.suggest_tags(data['title'], data['body'])
             if return_post:

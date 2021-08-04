@@ -27,5 +27,5 @@ def test():
 
 
 if __name__ == '__main__':
-    from app.core.tagsuggestion_business import TransformTokenizer # noqa (needed to use fitted vectorizers)
+    from app.core.tagsuggestion_business import TransformTokenizer # noqa
     manager.run()

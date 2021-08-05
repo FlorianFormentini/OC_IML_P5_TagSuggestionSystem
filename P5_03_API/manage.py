@@ -3,7 +3,6 @@ import unittest
 from flask_script import Manager
 from app import create_app
 
-from transform_tokenizer import TransformTokenizer # noqa
 
 app = create_app(os.getenv('OC_P5_ENV', 'dev'))
 app.app_context().push()

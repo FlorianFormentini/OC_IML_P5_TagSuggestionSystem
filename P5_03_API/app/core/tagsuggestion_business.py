@@ -2,16 +2,12 @@ import joblib
 import re
 from flask import current_app
 
-from transform_tokenizer import TransformTokenizer
+from .transform_tokenizer import TransformTokenizer
 
 
 class TagSuggestion:
 
     def __init__(self, vect_path=current_app.config['VECT_PATH'], model_path=current_app.config['MODEL_PATH']):
-        # from ipynb.fs.full.P5_02_models import TransformTokenizer
-
-        test = TransformTokenizer()
-        print('test ok\n', test)
         self.load_model(vect_path, model_path)
 
     def load_model(self, vect_path, model_path):

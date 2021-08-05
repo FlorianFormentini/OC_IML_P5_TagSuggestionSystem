@@ -2,8 +2,6 @@ import joblib
 import re
 from flask import current_app
 
-from .transform_tokenizer import TransformTokenizer
-
 
 class TagSuggestion:
 

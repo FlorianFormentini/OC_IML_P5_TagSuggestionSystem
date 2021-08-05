@@ -12,8 +12,6 @@ ns = TagSuggestionDTO.ns
 @ns.route('/suggest')
 class TagSuggestion(Resource):
 
-    @apikey_required
-    @ns.doc(security='apikey')
     @ns.expect(TagSuggestionDTO.post_args, TagSuggestionDTO.post_in)
     @ns.marshal_with(TagSuggestionDTO.tags_out)
     @ns.response(500, "Wrong API key")

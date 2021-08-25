@@ -19,7 +19,7 @@ class Config(object):
 
     # Tag suggestion
     VECT_PATH = 'app/static/trainset-io-vectorizers.pkl'
-    MODEL_PATH = 'app/static/model-OneVsRestClassifier-tuned.pkl'
+    MODEL_PATH = 'app/static/model-ovr-lr-tuned.pkl'
 
 
 class DevelopmentConfig(Config):

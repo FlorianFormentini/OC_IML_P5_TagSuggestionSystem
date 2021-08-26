@@ -32,7 +32,7 @@ class tagsuggestionServices:
             },
             'model': {
                 'type': "OneVsRestClassifier(Logisticregression(solver='saga', penalty='l1', C=10))",
-                'testset_F1': 0.662
+                'testset_F1': 0.628
             }
         }
         return params

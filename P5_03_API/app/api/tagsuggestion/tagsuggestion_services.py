@@ -28,7 +28,7 @@ class tagsuggestionServices:
                 'type': 'TfidfVectorizer',
                 'ngram_range': '(1,1) - unigrams',
                 'min_df': 5,
-                'max_df': 0.80,
+                'max_df': 0.75,
             },
             'model': {
                 'type': "OneVsRestClassifier(Logisticregression(solver='saga', penalty='l1', C=10))",

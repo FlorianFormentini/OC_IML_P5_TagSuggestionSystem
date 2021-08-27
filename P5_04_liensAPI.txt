@@ -1,0 +1,26 @@
+URL : https://oc-iml-p5.herokuapp.com
+
+Route de prédiction de tags : https://oc-iml-p5.herokuapp.com/tagsuggestion/suggest?return-post=true
+Le paramètre return-post permet de retourner ou non le post envoyé avec ses tags prédits.
+
+curl -X 'POST' \
+  'https://oc-iml-p5.herokuapp.com/tagsuggestion/suggest?return-post=true' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "title": "my title",
+  "body": "my question"
+}'
+
+
+Pour tester la route protégée /tagsuggestion/config il est nécessaire d'utiliser la cette clé d'api : dev_apikey
+
+https://oc-iml-p5.herokuapp.com/tagsuggestion/config
+
+curl -X 'GET' \
+  'https://oc-iml-p5.herokuapp.com/tagsuggestion/config' \
+  -H 'accept: application/json' \
+  -H 'X-API-KEY: dev_apikey'
+
+
+Les explications sur l'utilisation de l'interface Swagger sont décrites dans le rapport (P5_05_rapport.pdf).
